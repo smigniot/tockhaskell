@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+        <title>Tock</title>
+        <meta name="viewport" content="width=device-width" />
+        <link rel="stylesheet" type="text/css" href="css/tock.css" />
+    </head>
+    <body>
+
+     <style type="text/css">
+.goinput {
+    position: relative;
+    display: inline-block;
+}
+.goinput input {
+    height: 28px;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border: 1px solid black;
+    border-right: 0;
+    display: inline-block;
+}
+.goinput button {
+    height: 32px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border: 1px solid black;
+    display: inline-block;
+}
+     </style>
+
+
+     <div style="margin:10px">
+
+     <div class="goinput"><input class="west" placeholder="Ouest" onkeyup="if(event.keyCode == 13) this.nextSibling.click()" type="text"><button onclick="joinGame(this.previousSibling,'West')">↵</button></div>
+
+     </div>
+
+     <br />
+     <div class="input-group" style="position:relative"><input class="form-control" placeholder="Search for..." type="text"><span class="input-group-btn"><button class="btn btn-secondary" type="button"
+      style="margin:0"
+      >↵</button></span></div>
+
+    </body>
+</html>

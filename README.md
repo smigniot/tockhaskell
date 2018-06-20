@@ -1,2 +1,3 @@
 # tockhaskell
-Tock game in Haskell
+[Tock|https://en.wikipedia.org/wiki/Tock] game in [Haskell|https://haskell.org]
+
