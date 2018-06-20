@@ -1,6 +1,8 @@
 # tockhaskell
 [Tock](https://en.wikipedia.org/wiki/Tock) game in [Haskell](https://haskell.org)
 
+![Tock screenshot](doc/screenshot.png)
+
 ## Test suite test-tock: RUNNING...
 
 * Game creation OK
