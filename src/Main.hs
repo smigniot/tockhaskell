@@ -2,7 +2,6 @@
 module Main where
 
 
--- import Server
 import System.Environment (getEnv)
 import Game
 import Requests
