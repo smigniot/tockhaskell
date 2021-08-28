@@ -3,6 +3,7 @@ module Main where
 
 
 -- import Server
+import System.Environment (getEnv)
 import Game
 import Requests
 import Storage
@@ -26,8 +27,8 @@ import qualified Data.ByteString.Char8 as SBS
 import qualified Data.ByteString.Lazy.Char8 as LBS
 
 -- | Tock server application
-main =
-    let port = 1977 in do
+main = do
+    port <- read <$> getEnv "PORT"
     connection <- connect
     putStrLn ("Running Tock server on port " ++ (show port))
     runSettings (tockSettings port) (tracedTockApplication connection)
@@ -97,6 +98,7 @@ serveGameList conn respond = do
     rows <- listGames conn
     let csv = intercalate "\n" lines
         lines = "name,creation,west,north,east,south,pc":(map toLine rows)
+        toLine :: [String] -> String
         toLine row = intercalate "," row
     respond (responseLBS status200 [
         ("Content-Type","text/csv;charset=UTF8")
