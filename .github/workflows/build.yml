@@ -11,5 +11,5 @@ jobs:
         with:
           ghc-version: 8.10.7
           cabal-version: 3.6.2.0
-      - run: cabal v2-dist
+      - run: cabal v2-build
 
