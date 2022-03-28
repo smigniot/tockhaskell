@@ -1,0 +1,15 @@
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.3.4
+      - uses: haskell/actions/setup@v1.2
+        with:
+          ghc-version: 8.10.7
+          cabal-version: 3.6.2.0
+      - run: cabal v2-dist
+
