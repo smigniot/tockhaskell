@@ -14,6 +14,7 @@ import Network.HTTP.Types.Status
 import Control.Applicative
 import qualified Database.SQLite.Simple as S
 import qualified Data.Aeson as JSON
+import qualified Data.Aeson.Key as K
 import Data.List (intercalate, sort)
 import Database.SQLite.Simple.FromRow
 import Control.Monad (forM_)
@@ -165,7 +166,7 @@ statusJson game@(Game n c p d h) position respond =
         me = playerAt game (read (T.unpack position))
         hand = playerHand me
         board = JSON.object (map asPawns (gamePlayers game))
-        asPawns player = (T.pack (show (playerPosition player))) 
+        asPawns player = (K.fromString (show (playerPosition player)))
             JSON..= (playerPawns player)
         actions = nubs (sort manymoves)
         nubs [] = []
@@ -175,8 +176,9 @@ statusJson game@(Game n c p d h) position respond =
             else a:(nubs (b:rest))
         manymoves = movesFor me game
         handCounts = JSON.object (map asNameAndCount (gamePlayers game))
-        asNameAndCount pl@(Player n p h e pw) = (T.pack (show p)) JSON..= 
-            (JSON.object ["name" JSON..= n, "hand" JSON..= (length h),
+        asNameAndCount pl@(Player n p h e pw) = (K.fromString (show p)
+            ) JSON..= (JSON.object ["name" JSON..= n,
+                "hand" JSON..= (length h),
                 "hasexchange" JSON..= (hasex pl) ])
         hasex p = case (playerExchange p) of
             Nothing -> False
