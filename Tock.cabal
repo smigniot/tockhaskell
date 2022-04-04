@@ -18,7 +18,7 @@ cabal-version:       >=1.10
 
 executable Tock
   main-is:           Main.hs
-  -- other-modules:       
+  other-modules:     Game, Journey, Requests, Robots, Shuffle, Storage
   -- other-extensions:    
   build-depends:     wai-app-static (>=3.1.6.1), base, random, array, time, wai, http-types, bytestring, warp, directory, text, old-locale, wai-extra, sqlite-simple, blaze-builder, blaze-html, ghc-prim, aeson
   hs-source-dirs:    src
